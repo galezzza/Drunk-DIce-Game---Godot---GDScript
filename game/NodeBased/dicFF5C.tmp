@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwr5ir1lrsscn"]
+
+[ext_resource type="Script" path="res://game/NodeBased/Dice Roller.gd" id="1_okp8p"]
+[ext_resource type="PackedScene" uid="uid://dkcvv1fgn1o6" path="res://game/NodeBased/dice.tscn" id="2_sevpx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ddhgr"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.517647, 0.607843, 0.92549, 1)
+
+[node name="PanelContainer" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.0
+offset_top = -38.0
+offset_right = 70.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ddhgr")
+script = ExtResource("1_okp8p")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Dice Roller" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Dice" parent="MarginContainer/Dice Roller" instance=ExtResource("2_sevpx")]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Dice2" parent="MarginContainer/Dice Roller" instance=ExtResource("2_sevpx")]
+layout_mode = 2
+size_flags_vertical = 0

@@ -1,0 +1,122 @@
+[gd_scene load_steps=9 format=3 uid="uid://b8txkv1qke48a"]
+
+[ext_resource type="Theme" uid="uid://cyrfj8pkb8i0" path="res://game/assets/Buttons.tres" id="1_7usvh"]
+[ext_resource type="Script" path="res://game/NodeBased/main_menu.gd" id="1_3260x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ohsrd"]
+bg_color = Color(0.85098, 0.929412, 0.988235, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vrahd"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ltymo"]
+bg_color = Color(0.85098, 0.929412, 0.988235, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vuxw7"]
+bg_color = Color(0.85098, 0.929412, 0.988235, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+shadow_color = Color(0, 0, 0, 0.301961)
+shadow_size = 2
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3wwp3"]
+bg_color = Color(0.517647, 0.607843, 0.92549, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ojx43"]
+bg_color = Color(0.85098, 0.929412, 0.988235, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[node name="Main menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3260x")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ohsrd")
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/CenterContainer"]
+custom_minimum_size = Vector2(188, 188)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vrahd")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Play" type="Button" parent="PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(156, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_7usvh")
+text = "Play"
+
+[node name="Settings" type="Button" parent="PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(125, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_7usvh")
+theme_override_colors/font_color = Color(0.517647, 0.607843, 0.92549, 1)
+theme_override_colors/font_pressed_color = Color(0.85098, 0.929412, 0.988235, 1)
+theme_override_colors/font_hover_color = Color(0.517647, 0.607843, 0.92549, 1)
+theme_override_colors/font_focus_color = Color(0.517647, 0.607843, 0.92549, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_ltymo")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vuxw7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3wwp3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ojx43")
+text = "Settings"
+
+[node name="Exit" type="Button" parent="PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(96, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_7usvh")
+theme_override_colors/font_color = Color(0.517647, 0.607843, 0.92549, 1)
+theme_override_colors/font_pressed_color = Color(0.85098, 0.929412, 0.988235, 1)
+theme_override_colors/font_hover_color = Color(0.517647, 0.607843, 0.92549, 1)
+theme_override_colors/font_focus_color = Color(0.517647, 0.607843, 0.92549, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_ltymo")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vuxw7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3wwp3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ojx43")
+text = "Exit"

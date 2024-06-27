@@ -1,0 +1,221 @@
+[gd_scene load_steps=7 format=3 uid="uid://cvt1qa06fg0kp"]
+
+[ext_resource type="Script" path="res://game/NodeBased/task_description_pop_up.gd" id="1_2w7mi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q0xl0"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.517647, 0.607843, 0.92549, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="Animation" id="Animation_wm2vi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_aowe6"]
+resource_name = "move_in"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.768627)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("popup:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(20, 800), Vector2(20, 200)]
+}
+
+[sub_resource type="Animation" id="Animation_hckh5"]
+resource_name = "move_out"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("popup:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(20, 200), Vector2(20, 800)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.768627), Color(0, 0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uronv"]
+_data = {
+"RESET": SubResource("Animation_wm2vi"),
+"move_in": SubResource("Animation_aowe6"),
+"move_out": SubResource("Animation_hckh5")
+}
+
+[node name="Task description pop up" type="Panel"]
+self_modulate = Color(0, 0, 0, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2w7mi")
+
+[node name="Background Button" type="Button" parent="."]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="popup" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 200.0
+offset_top = 600.0
+offset_right = 520.0
+offset_bottom = 1000.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_q0xl0")
+
+[node name="MarginContainer" type="MarginContainer" parent="popup"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="popup/MarginContainer"]
+clip_contents = true
+layout_mode = 2
+
+[node name="Header" type="HBoxContainer" parent="popup/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="popup/MarginContainer/VBoxContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+text = "Task description"
+
+[node name="Close Button" type="Button" parent="popup/MarginContainer/VBoxContainer/Header"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Close"
+
+[node name="Control" type="Control" parent="popup/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="popup/MarginContainer/VBoxContainer/Control"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -2
+theme_override_font_sizes/font_size = 12
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Faucibus ornare suspendisse sed nisi lacus sed viverra tellus. Viverra justo nec ultrices dui sapien eget mi. Suspendisse in est ante in. Id semper risus in hendrerit. Egestas pretium aenean pharetra magna ac. Nunc mattis enim ut tellus elementum sagittis vitae. Egestas pretium aenean pharetra magna ac placerat vestibulum lectus mauris. At imperdiet dui accumsan sit amet nulla facilisi morbi tempus. Nibh tortor id aliquet lectus proin. Sem et tortor consequat id porta. Ipsum dolor sit amet consectetur adipiscing elit. Natoque penatibus et magnis dis parturient montes nascetur ridiculus mus. Vitae aliquet nec ullamcorper sit amet risus nullam eget. Nisl vel pretium lectus quam id leo in vitae. Porttitor leo a diam sollicitudin tempor id eu. Volutpat lacus laoreet non curabitur. Eget sit amet tellus cras.
+Nulla pharetra diam sit amet nisl suscipit adipiscing. Nascetur ridiculus mus mauris vitae ultricies leo integer malesuada. Eget lorem dolor sed viverra ipsum. Arcu cursus vitae congue mauris. Adipiscing elit duis tristique sollicitudin nibh sit. Risus in hendrerit gravida rutrum. Consectetur a erat nam at lectus urna. Viverra maecenas accumsan lacus vel facilisis. Quis imperdiet massa tincidunt nunc pulvinar. Praesent semper feugiat nibh sed pulvinar proin gravida. Aliquet risus feugiat in ante metus dictum at tempor. Venenatis cras sed felis eget velit.
+Vulputate sapien nec sagittis aliquam malesuada bibendum arcu vitae elementum. Bibendum enim facilisis gravida neque convallis a. Nam at lectus urna duis convallis convallis tellus id interdum. Vulputate mi sit amet mauris commodo. Porttitor rhoncus dolor purus non enim praesent elementum. Fermentum posuere urna nec tincidunt praesent semper. Facilisis gravida neque convallis a cras semper auctor. Volutpat odio facilisis mauris sit. Porttitor eget dolor morbi non arcu risus quis varius quam. Ac turpis egestas sed tempus urna et. Ut morbi tincidunt augue interdum velit euismod in. Pretium fusce id velit ut tortor pretium viverra suspendisse potenti."
+autowrap_mode = 2
+clip_text = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_uronv")
+}

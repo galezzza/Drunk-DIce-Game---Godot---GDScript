@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwr5ir1lrsscn"]
+
+[ext_resource type="Script" path="res://game/NodeBased/dices_roller.gd" id="1_jsfkj"]
+[ext_resource type="PackedScene" uid="uid://dkcvv1fgn1o6" path="res://game/NodeBased/dice.tscn" id="2_sevpx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ddhgr"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.517647, 0.607843, 0.92549, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="PanelContainer" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.0
+offset_top = -48.0
+offset_right = 86.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ddhgr")
+script = ExtResource("1_jsfkj")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Dice" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_sevpx")]
+layout_mode = 2
+
+[node name="Dice2" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_sevpx")]
+layout_mode = 2
