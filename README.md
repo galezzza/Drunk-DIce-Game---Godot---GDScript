@@ -9,6 +9,8 @@ This project is an proto- version of game that was built by myself on GDScript. 
 - The player has the opportunity not to perform this task, but in tedy gets a ***penalty*** (it is assumed that he has to drink a "shot" of alcohol).
 - Cell draw lots using 2 virtual dice
 
+<img src="docs/screenshots/game-gif.gif" alt="demo" width="200"/>
+
 ## How to install this example Golang project on Kubernetes
 
 The easiest way to see how this works is to watch the series, but here's the short version.
@@ -34,9 +36,9 @@ This project is till ongoing.
 If you found an issue or would like to submit an improvement to this project, please submit an issue using the issues tab above. If you would like to submit a PR with a fix, reference the issue you created!
 
 ## Links
-
+#### Figma
 <a href="https://www.figma.com/design/LUNOSJlPwwujPWMNvk9GP3/Johan-Project?node-id=22-2&t=cFvgWe1L6gq8ARFx-1" target="_blank">
-<img src="" alt="Figma prototype" width="240" height="180" border="10" />
+  <img src="/docs/screenshots/figma.png" alt="Figma prototype" width="480" height="270" border="10" />
 </a>
 
 
